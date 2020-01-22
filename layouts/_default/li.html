@@ -1,4 +1,4 @@
-<a ontouchstart="cardPressed.call(this)" ontouchend="cardReleased.call(this)" ontouchmove="cardReleased.call(this)" 
+<a ontouchstart="cardPressed.call(this)" ontouchend="cardReleased.call(this)" ontouchmove="cardReleased.call(this)"
   href="{{ .Permalink }}" class="card blog-card" rel="bookmark" >
   {{ with .Resources.GetMatch "featuredImage" }}
   <div class="card-img-container">
@@ -6,7 +6,7 @@
       {{ with $.Resources.GetMatch (replace (.Title) (path.Ext (.Title)) ".webp") -}}
       <source srcset="{{ .Permalink }}" type="image/webp">
       {{- end }}
-      {{ $thumbnail := .Fit "400x300 Lanczos" }}
+      {{ $thumbnail := .Fit "400x300" }}
       <source srcset="{{ $thumbnail.Permalink }}">
       <img src="{{ $thumbnail.Permalink }}" class="card-img" {{ with .Params.description -}} alt="{{ . }}" {{- end }}>
     </picture>
